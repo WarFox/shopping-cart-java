@@ -1,0 +1,11 @@
+* DONE Represent a product, with name and price
+  CLOSED: [2017-03-06 Mon 08:31]
+  :LOGBOOK:
+  CLOCK: [2017-03-06 Mon 08:26]--[2017-03-06 Mon 08:31] =>  0:05
+  CLOCK: [2017-03-06 Mon 08:26]--[2017-03-06 Mon 08:26] =>  0:00
+  :END:
+* TODO Create a shopping cart - with product list
+* TODO Calculate total price
+* TODO Add Offer/Discount Interface
+* TODO Implement Offers
+* TODO Apply relevant offers one by one to Shopping cart
