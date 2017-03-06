@@ -11,7 +11,12 @@
   :END:
 * DONE Represent a Bill
   CLOSED: [2017-03-06 Mon 09:11]
-* TODO Create bill generator
+* DONE Create bill generator
+  CLOSED: [2017-03-06 Mon 10:08]
+** BillGenerator accepts a pricelist and list of items
+   :LOGBOOK:
+   CLOCK: [2017-03-06 Mon 10:01]--[2017-03-06 Mon 10:08] => 0:07
+   :END:
 * TODO Calculate total price
 * TODO Add Offer/Discount Interface
 * TODO Implement Offers
