@@ -9,6 +9,9 @@
   :LOGBOOK:
   CLOCK: [2017-03-06 Mon 08:43]--[2017-03-06 Mon 08:56] =>  0:13
   :END:
+* DONE Represent a Bill
+  CLOSED: [2017-03-06 Mon 09:11]
+* TODO Create bill generator
 * TODO Calculate total price
 * TODO Add Offer/Discount Interface
 * TODO Implement Offers
