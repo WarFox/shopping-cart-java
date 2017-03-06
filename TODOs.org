@@ -4,7 +4,11 @@
   CLOCK: [2017-03-06 Mon 08:26]--[2017-03-06 Mon 08:31] =>  0:05
   CLOCK: [2017-03-06 Mon 08:26]--[2017-03-06 Mon 08:26] =>  0:00
   :END:
-* TODO Create a shopping cart - with product list
+* DONE Create a shopping cart - with product list
+  CLOSED: [2017-03-06 Mon 08:56]
+  :LOGBOOK:
+  CLOCK: [2017-03-06 Mon 08:43]--[2017-03-06 Mon 08:56] =>  0:13
+  :END:
 * TODO Calculate total price
 * TODO Add Offer/Discount Interface
 * TODO Implement Offers
