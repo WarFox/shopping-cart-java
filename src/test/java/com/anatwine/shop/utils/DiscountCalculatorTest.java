@@ -84,5 +84,4 @@ public class DiscountCalculatorTest {
         assertThat(discount).isEqualTo(0.0);
     }
 
-
 }

@@ -38,6 +38,9 @@
   :END:
 * DONE Discount calculator
   CLOSED: [2017-03-09 Thu 21:37]
-* TODO Implement Offers
-* TODO Apply relevant offers one by one to Shopping cart
-* TODO Consider chain of responsibility
+* DONE Implement Offers
+  CLOSED: [2017-03-09 Thu 23:01]
+* DONE Apply relevant offers one by one to Shopping cart
+  CLOSED: [2017-03-09 Thu 23:01]
+* DONE Consider chain of responsibility
+  CLOSED: [2017-03-09 Thu 23:01]
