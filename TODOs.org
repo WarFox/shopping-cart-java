@@ -26,6 +26,11 @@
   :LOGBOOK:
   CLOCK: [2017-03-09 Thu 12:48]--[2017-03-09 Thu 13:13] =>  0:25
   :END:
+* DONE Bill should contain subtotal, total and list of discounts
+  CLOSED: [2017-03-09 Thu 13:57]
+  :LOGBOOK:
+  CLOCK: [2017-03-09 Thu 13:39]--[2017-03-09 Thu 13:57] =>  0:18
+  :END:
 * TODO Implement Offers
 * TODO Apply relevant offers one by one to Shopping cart
 * TODO Consider chain of responsibility

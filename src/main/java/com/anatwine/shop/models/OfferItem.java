@@ -7,9 +7,9 @@ package com.anatwine.shop.models;
  */
 public class OfferItem {
 
-    private String name;
-    private int quantity;
-    private DiscountItem discountItem;
+    private final String name;
+    private final int quantity;
+    private final DiscountItem discountItem;
 
     public OfferItem(String name, int quantity, DiscountItem discountItem) {
         this.name = name;
