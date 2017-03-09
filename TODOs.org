@@ -36,6 +36,8 @@
   :LOGBOOK:
   CLOCK: [2017-03-09 Thu 19:18]--[2017-03-09 Thu 19:29] =>  0:11
   :END:
+* DONE Discount calculator
+  CLOSED: [2017-03-09 Thu 21:37]
 * TODO Implement Offers
 * TODO Apply relevant offers one by one to Shopping cart
 * TODO Consider chain of responsibility
