@@ -2,6 +2,10 @@ package com.anatwine.shop.models;
 
 import java.util.List;
 
+/**
+ * The Bill has subtotal, total and list of discounts
+ * Message can be generated based on the discounts available
+ */
 public class Bill {
 
     private final Double subtotal;
