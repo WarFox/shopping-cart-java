@@ -17,7 +17,15 @@
    :LOGBOOK:
    CLOCK: [2017-03-06 Mon 10:01]--[2017-03-06 Mon 10:08] => 0:07
    :END:
-* TODO Calculate total price
-* TODO Add Offer/Discount Interface
+* DONE Calculate Discount from item count, price and discount%
+  CLOSED: [2017-03-07 Tue 18:37]
+* DONE Calculate total price
+  CLOSED: [2017-03-07 Tue 19:02]
+* DONE Add Offer/Discount Models
+  CLOSED: [2017-03-09 Thu 13:16]
+  :LOGBOOK:
+  CLOCK: [2017-03-09 Thu 12:48]--[2017-03-09 Thu 13:13] =>  0:25
+  :END:
 * TODO Implement Offers
 * TODO Apply relevant offers one by one to Shopping cart
+* TODO Consider chain of responsibility
