@@ -44,3 +44,5 @@
   CLOSED: [2017-03-09 Thu 23:01]
 * DONE Consider chain of responsibility
   CLOSED: [2017-03-09 Thu 23:01]
+* DONE Update Bill Generator
+  CLOSED: [2017-03-09 Thu 23:51]
