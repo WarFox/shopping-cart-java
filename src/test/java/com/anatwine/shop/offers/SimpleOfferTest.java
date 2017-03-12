@@ -77,4 +77,18 @@ public class SimpleOfferTest {
         assertThat(discounts.get(0).getDiscountValue()).isEqualTo(0.0);
     }
 
+    @Test
+    public void applyOfferNotEnoughItemsPurchased() throws Exception {
+        OfferItem offerItem = new OfferItem("Bread", 2, new DiscountItem("Apple", 10.0));
+        PriceList priceList = Mockito.mock(PriceList.class);
+        SimpleOffer simpleOffer = new SimpleOffer(offerItem, priceList);
+        simpleOffer.setNext(Mockito.mock(SimpleOffer.class));
+        ShoppingCart shoppingCart = Mockito.mock(ShoppingCart.class);
+        Mockito.when(shoppingCart.getItemCount(any()))
+                .thenReturn(1L);
+        ArrayList<Discount> discounts = new ArrayList<>();
+        simpleOffer.applyOffer(shoppingCart, discounts);
+        assertThat(discounts).isEmpty();
+    }
+
 }

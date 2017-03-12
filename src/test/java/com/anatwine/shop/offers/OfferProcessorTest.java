@@ -38,4 +38,11 @@ public class OfferProcessorTest {
         assertThat(discounts).hasSize(3);
     }
 
+    @Test
+    public void testApplyOfferWithNoOfferInChain() throws Exception {
+        OfferProcessor offerProcessor = new OfferProcessor();
+        List<Discount> discounts = offerProcessor.applyOffer(Mockito.mock(ShoppingCart.class));
+        assertThat(discounts).isEmpty();
+    }
+
 }
