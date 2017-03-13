@@ -5,7 +5,7 @@ import com.anatwine.shop.models.Discount;
 
 import java.util.List;
 
-public interface Offer {
+interface Offer {
 
     void setNext(Offer offer);
 

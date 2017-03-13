@@ -12,7 +12,7 @@ import java.util.Optional;
 /**
  * This is the main class that generates a bill
  */
-public class BillGenerator {
+class BillGenerator {
 
     private final PriceList priceList;
     private final OfferProcessor processor;

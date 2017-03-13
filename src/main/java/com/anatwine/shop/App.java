@@ -1,13 +1,18 @@
 package com.anatwine.shop;
 
-import com.anatwine.shop.models.*;
+import com.anatwine.shop.models.Bill;
+import com.anatwine.shop.models.Discount;
+import com.anatwine.shop.models.OfferItem;
+import com.anatwine.shop.models.PriceList;
 import com.anatwine.shop.offers.OfferProcessor;
 import com.anatwine.shop.utils.ConfigParser;
 import com.anatwine.shop.utils.CurrencyFormat;
 import com.typesafe.config.Config;
 import com.typesafe.config.ConfigFactory;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Locale;
 
 /**
  * Main class
@@ -18,20 +23,23 @@ public class App {
 
     public static void main(String[] args) {
         List<String> items = Arrays.asList(args);
+        Config config = ConfigFactory.load();
 
         ShoppingCart shoppingCart = new ShoppingCart(items);
 
-        Config config = ConfigFactory.load();
+        BillGenerator billGenerator = getBillGenerator(config);
+        Bill bill = billGenerator.generateBill(shoppingCart);
+        print(bill);
+    }
 
+    public static BillGenerator getBillGenerator(Config config) {
         ConfigParser configParser = new ConfigParser(config);
         List<OfferItem> offers = configParser.getOffers();
         PriceList priceList = configParser.getPriceList();
 
         OfferProcessor offerProcessor = OfferProcessor.createSimpleOfferProcessor(offers, priceList);
 
-        BillGenerator billGenerator = new BillGenerator(priceList, offerProcessor);
-        Bill bill = billGenerator.generateBill(shoppingCart);
-        print(bill);
+        return new BillGenerator(priceList, offerProcessor);
     }
 
     public static ShoppingCart getShoppingCart(String[] args) {

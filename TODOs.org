@@ -48,3 +48,4 @@
   CLOSED: [2017-03-09 Thu 23:51]
 * DONE Add CurrencyFormatter
   CLOSED: [2017-03-10 Fri 01:02]
+* TODO Consider using BigDecimal for accuracy

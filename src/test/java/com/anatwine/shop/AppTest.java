@@ -2,15 +2,13 @@ package com.anatwine.shop;
 
 import com.anatwine.shop.models.Bill;
 import com.anatwine.shop.models.Discount;
-import com.anatwine.shop.models.OfferItem;
-import com.anatwine.shop.models.PriceList;
 import com.typesafe.config.Config;
-import com.typesafe.config.ConfigValue;
-import com.typesafe.config.ConfigValueFactory;
+import com.typesafe.config.ConfigFactory;
 import org.junit.Test;
 import org.mockito.Mockito;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.times;
@@ -52,6 +50,17 @@ public class AppTest {
         Mockito.verify(discount).getName();
         Mockito.verify(discount).getDiscountPercent();
         Mockito.verify(discount).getDiscountValue();
+    }
+
+    @Test
+    public void testGetBillGenerator() throws Exception {
+        Config config = ConfigFactory.load("test.conf");
+        BillGenerator billGenerator = App.getBillGenerator(config);
+        ShoppingCart shoppingCart = new ShoppingCart(Arrays.asList("Apple", "Bread", "Bread", "Milk", "Soup", "Soup"));
+        Bill bill = billGenerator.generateBill(shoppingCart);
+        assertThat(bill.getSubtotal()).isEqualTo(5.2);
+        assertThat(bill.getTotal()).isEqualTo(4.04);
+        assertThat(bill.getDiscounts()).hasSize(3);
     }
 
 }
