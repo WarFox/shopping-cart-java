@@ -27,7 +27,8 @@ public class CurrencyFormat {
     // Add more supported currency code, when required
     public String fractionalUnit() {
         String result = "";
-        switch (numberFormat.getCurrency().getCurrencyCode()) {
+        String currencyCode = numberFormat.getCurrency().getCurrencyCode();
+        switch (currencyCode) {
             case "GBP":
                 result = "p";
                 break;

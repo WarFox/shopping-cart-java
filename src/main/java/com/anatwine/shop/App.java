@@ -2,6 +2,7 @@ package com.anatwine.shop;
 
 import com.anatwine.shop.models.*;
 import com.anatwine.shop.offers.OfferProcessor;
+import com.anatwine.shop.utils.ConfigParser;
 import com.anatwine.shop.utils.CurrencyFormat;
 import com.typesafe.config.Config;
 import com.typesafe.config.ConfigFactory;
@@ -21,9 +22,12 @@ public class App {
         ShoppingCart shoppingCart = new ShoppingCart(items);
 
         Config config = ConfigFactory.load();
-        PriceList priceList = createPriceList(config);
 
-        OfferProcessor offerProcessor = OfferProcessor.createSimpleOfferProcessor(getOffers(), priceList);
+        ConfigParser configParser = new ConfigParser(config);
+        List<OfferItem> offers = configParser.getOffers();
+        PriceList priceList = configParser.getPriceList();
+
+        OfferProcessor offerProcessor = OfferProcessor.createSimpleOfferProcessor(offers, priceList);
 
         BillGenerator billGenerator = new BillGenerator(priceList, offerProcessor);
         Bill bill = billGenerator.generateBill(shoppingCart);
@@ -32,27 +36,6 @@ public class App {
 
     public static ShoppingCart getShoppingCart(String[] args) {
         return new ShoppingCart(Arrays.asList(args));
-    }
-
-    // At the moment this is static
-    // But can be loaded from the config file
-    public static List<OfferItem> getOffers() {
-        List<OfferItem> offerItems = new ArrayList<>();
-        offerItems.add(new OfferItem("Apple", 1, new DiscountItem("Apple", 10.0)));
-        offerItems.add(new OfferItem("Soup", 2, new DiscountItem("Bread", 50.0)));
-        // offerItems.add(new OfferItem("Milk", 1, new DiscountItem("Milk", 50.0)));
-        return offerItems;
-    }
-
-    public static PriceList createPriceList(Config config) {
-        Map<String, Double> prices = new HashMap<>();
-        Config priceConfig = config.getConfig("price");
-        priceConfig.entrySet().forEach(price -> {
-            String product = price.getKey();
-            Double value = priceConfig.getDouble(product);
-            prices.put(product, value);
-        });
-        return new PriceList(prices);
     }
 
     public static void print(Bill bill) {
