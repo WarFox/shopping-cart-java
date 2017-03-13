@@ -4,7 +4,6 @@ import java.util.Map;
 
 /**
  * Price list is a map of String -> Double
- *
  */
 public class PriceList {
 
@@ -21,7 +20,7 @@ public class PriceList {
             // was purchased
             // TODO we should probably log this as error or abort
             // For new log the event and return 0
-           System.out.println(name + " not in inventory");
+            System.out.println(name + " not in inventory");
         }
         return price == null ? 0.0 : price;
     }

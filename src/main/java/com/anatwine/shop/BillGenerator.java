@@ -30,7 +30,7 @@ public class BillGenerator {
         return new Bill(subTotal, total, discounts);
     }
 
-    public Optional<Double> totalDiscount(List<Discount> discounts) {
+    public static Optional<Double> totalDiscount(List<Discount> discounts) {
         return discounts.stream()
                 .map(Discount::getDiscountValue)
                 .reduce((d1, d2) -> d1 + d2);

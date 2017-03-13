@@ -34,7 +34,7 @@ If no special offers are applicable the code should output:
 
     Subtotal: £1.30
     (No offers available)
-    Total proce: £1.30
+    Total price: £1.30
 
 The code and design should meet these requirements, but be sufficiently
 flexible to allow future changes to the product list and/or discounts

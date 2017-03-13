@@ -35,9 +35,9 @@ public class OfferProcessor {
 
     public static OfferProcessor createSimpleOfferProcessor(List<OfferItem> offerItems, PriceList priceList) {
         OfferProcessor offerProcessor = new OfferProcessor();
-        offerItems.stream().forEach(offer -> {
-            offerProcessor.addHandler(new SimpleOffer(offer, priceList));
-        });
+        for (OfferItem offerItem : offerItems) {
+            offerProcessor.addHandler(new SimpleOffer(offerItem, priceList));
+        }
         return offerProcessor;
     }
 

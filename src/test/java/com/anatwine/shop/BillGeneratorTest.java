@@ -87,4 +87,21 @@ public class BillGeneratorTest {
         assertThat(subTotal).isEqualTo(3.0);
     }
 
+    @Test
+    public void testTotalDiscount() throws Exception {
+        ArrayList<Discount> discounts = new ArrayList<>();
+        discounts.add(new Discount("name", 10.0, 10.0));
+        discounts.add(new Discount("name", 10.0, 20.0));
+        discounts.add(new Discount("name", 10.0, 30.0));
+        Optional<Double> optionalDiscount = BillGenerator.totalDiscount(discounts);
+        assertThat(optionalDiscount.get()).isEqualTo(60);
+    }
+
+    @Test
+    public void testTotalDiscountEmptyDiscountsList() throws Exception {
+        ArrayList<Discount> discounts = new ArrayList<>();
+        Optional<Double> optionalDiscount = BillGenerator.totalDiscount(discounts);
+        assertThat(optionalDiscount).isEmpty();
+    }
+
 }

@@ -11,8 +11,8 @@ import com.anatwine.shop.models.PriceList;
  */
 public class DiscountCalculator {
 
-    private PriceList priceList;
-    private ShoppingCart cart;
+    private final PriceList priceList;
+    private final ShoppingCart cart;
 
     public DiscountCalculator(ShoppingCart cart, PriceList priceList) {
         this.priceList = priceList;
