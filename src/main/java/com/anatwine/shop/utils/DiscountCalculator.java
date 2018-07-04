@@ -6,6 +6,8 @@ import com.anatwine.shop.models.DiscountItem;
 import com.anatwine.shop.models.OfferItem;
 import com.anatwine.shop.models.PriceList;
 
+import java.math.BigDecimal;
+
 /**
  * Logic to calculate discount
  */
@@ -31,6 +33,13 @@ public class DiscountCalculator {
 
     public static Double calculateDiscount(long count, Double price, Double discountPercent) {
         return (count * price * discountPercent) / 100;
+    }
+
+    public static BigDecimal calculateDiscount(Long count, BigDecimal price, BigDecimal discountPercent) {
+        return BigDecimal.valueOf(count)
+                .multiply(price)
+                .multiply(discountPercent)
+                .divide(BigDecimal.valueOf(100));
     }
 
 }

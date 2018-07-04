@@ -7,10 +7,8 @@ import com.anatwine.shop.models.PriceList;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.math.BigDecimal;
+import java.util.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -46,7 +44,7 @@ public class DiscountCalculatorTest {
 
     @Test
     public void test25PercentDiscountOn3ItemAt30PerItem() throws Exception {
-        Double discount = DiscountCalculator.calculateDiscount(3, 30.0, 25.0);
+        Double discount = DiscountCalculator.calculateDiscount(7, 37.0, 9.33);
         assertThat(discount).isEqualTo(22.5);
     }
 
@@ -82,6 +80,32 @@ public class DiscountCalculatorTest {
         discountCalculator.calculateDiscount(offerItem);
         Double discount = DiscountCalculator.calculateDiscount(5, 10.0, 0.0);
         assertThat(discount).isEqualTo(0.0);
+    }
+
+
+    @Test
+    public void testCalculateDiscountBigDecimalZero() throws Exception {
+        BigDecimal bigDecimal = DiscountCalculator.calculateDiscount(0l, BigDecimal.valueOf(20), BigDecimal.ONE);
+        assertThat(bigDecimal).isZero();
+    }
+
+    @Test
+    public void testCalculateDiscountBigDecimal() throws Exception {
+        BigDecimal price = BigDecimal.valueOf(20);
+        BigDecimal discountPercent = BigDecimal.ONE;
+        Long count = 2l;
+
+        BigDecimal ten = BigDecimal.TEN;
+        BigDecimal divident = BigDecimal.valueOf(36.0);
+        assertThat(divident.divide(ten)).isEqualTo(BigDecimal.valueOf(36));
+
+        BigDecimal discount1 = DiscountCalculator.calculateDiscount(3l, BigDecimal.valueOf(30.0), BigDecimal.valueOf(50.0));
+        assertThat(discount1).isEqualTo(BigDecimal.valueOf(45.00));
+
+        BigDecimal discount = DiscountCalculator.calculateDiscount(7l, BigDecimal.valueOf(37.0), BigDecimal.valueOf(9.33));
+        BigDecimal bigDecimal =  DiscountCalculator.calculateDiscount(count, price, discountPercent);
+        assertThat(bigDecimal).isEqualTo(BigDecimal.valueOf(0.04));
+        assertThat(discount).isEqualTo(BigDecimal.ONE);
     }
 
 }
